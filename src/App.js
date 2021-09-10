@@ -3,7 +3,8 @@ import React from "react"
 import { Provider } from "react-redux"
 import { Route } from "react-router"
 import { ConnectedRouter } from 'connected-react-router'
-import Login from "./Login"
+import Login from "./Login/LoginForm"
+import Signup from "./Login/SignupForm"
 import './App.css';
 import 'antd/dist/antd.css';
 import RootSaga from "./sagas"
@@ -16,6 +17,8 @@ const App = rootElem => {
     return <Provider store={store}>
         <ConnectedRouter history={history}>
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+
         </ConnectedRouter>
     </Provider>
 }

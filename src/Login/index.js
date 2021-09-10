@@ -1,9 +1,16 @@
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Layout, Breadcrumb } from 'antd';
+import { Form, Input, Button, Checkbox, Row, Col } from 'antd';
+
+
+import { Field, reduxForm, getFormValues } from 'redux-form';
+
+import { InputField, PasswordField } from '../AntdReduxForm';
+import { required } from 'redux-form-validators';
+
 
 const { Header, Content, Footer } = Layout;
 
-const Demo = () => {
+const LoginForm = () => {
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -15,59 +22,70 @@ const Demo = () => {
   return (
     <Layout className="layout">
       <Header>
-        {/* <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-          {new Array(15).fill(null).map((_, index) => {
-            const key = index + 1;
-            return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
-          })}
-        </Menu> */}
       </Header>
-      <Content style={{ padding: '50px 600px' }}>
+      <Content  className="site-layout-content" style={{ padding: '50px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
-          {/* <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item> */}
         </Breadcrumb>
-        <div className="site-layout-content"><Form
-          name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-        >
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+        <div>
+          <Form
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 24 }}
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            style={{ padding: 20 }}
           >
-            <Input />
-          </Form.Item>
+            <Field
+              size="large"
+              name="firstName"
+              placeholder="First name"
+              validate={[required()]}
+              component={InputField}
+              required
+            />
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
+            <Field
+              size="large"
+              name="lastName"
+              placeholder="Last name"
+              validate={[required()]}
+              component={InputField}
+              required
+            />
 
-          <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+            <Field
+              size="large"
+              name="email"
+              placeholder="Email"
+              validate={[required()]}
+              component={InputField}
+              required
+            />
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Form></div>
+            <Field
+              size="large"
+              name="mobileNumber"
+              placeholder="Mobile number"
+              validate={[required()]}
+              component={InputField}
+              required
+            />
+
+
+            <Form.Item>
+              <Button type="primary" htmlType="submit" size={'large'} >
+                Submit
+              </Button>
+            </Form.Item>
+          </Form></div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>Remote Dev ©2018 Created by Appomate</Footer>
     </Layout>
   );
 };
 
-export default Demo;
+export default reduxForm({
+  form: 'LoginForm'
+})(LoginForm)

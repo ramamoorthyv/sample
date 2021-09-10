@@ -1,14 +1,11 @@
 import React from 'react';
 import { Form, Input, Radio, Checkbox, DatePicker, InputNumber } from 'antd';
-import ColorPicker from './ColorPicker';
 import CheckboxGroup from './CheckboxGroup';
 import MaskInput from './MaskInput';
 import customDatePicker from './DatePicker';
 import Switch from './Switch';
 import Picker from './Timepicker';
-import TextEditor from './TextEditor';
 import Select from './SelectField';
-import AsyncSelect from './AsyncSelectField';
 import CurrencyInput from './CurrencyInput';
 
 const RadioGroup = Radio.Group;
@@ -61,16 +58,11 @@ export const CheckboxField = makeField(Checkbox);
 export const TextareaField = makeField(TextArea);
 export const DatePickerField = makeField(customDatePicker);
 export const DateRangePickerField = makeField(RangePicker);
-export const ColorPickerField = makeField(ColorPicker);
 export const SwitchField = makeField(Switch);
 export const CheckboxGroupField = makeField(CheckboxGroup);
 export const MaskInputField = makeField(MaskInput);
 export const InputNumberField = makeField(InputNumber);
 export const InputCurrencyField = makeField(CurrencyInput);
 export const TimepickerField = makeField(Picker);
-export const TextEditorField = makeField(TextEditor);
 export const RadioField = makeField(Radio);
-export const AsyncSelectField = makeField(AsyncSelect);
 
-export { default as DropzoneField } from './Dropzone'; // skip form item
-export { default as ImageUploadField } from './ImageUpload'; // skip form item
