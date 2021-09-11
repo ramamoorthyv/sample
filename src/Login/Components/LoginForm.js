@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Field, reduxForm, getFormValues } from "redux-form";
 
-import { InputField, PasswordField } from "../AntdReduxForm";
+import { InputField, PasswordField } from "../../AntdReduxForm";
 import { required } from "redux-form-validators";
 
 const { Header, Content, Footer } = Layout;
@@ -37,7 +37,7 @@ const LoginForm = () => {
           >
             <Field
               size="large"
-              name="otp"
+              name="email"
               placeholder="Email"
               validate={[required()]}
               component={InputField}
@@ -48,8 +48,8 @@ const LoginForm = () => {
               <Button type="primary" htmlType="submit" size={"large"}>
                 Submit
               </Button>
-              <Link style={{ paddingLeft: 20 }} to="/login">
-                Cancel
+              <Link style={{ paddingLeft: 20 }} to="/signup">
+                Register new user
               </Link>
             </Form.Item>
           </Form>

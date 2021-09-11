@@ -1,30 +1,29 @@
+import React from "react";
+import { Provider } from "react-redux";
+import { Route } from "react-router";
+import { ConnectedRouter } from "connected-react-router";
+import { Login, Signup } from "./Login";
 
-import React from "react"
-import { Provider } from "react-redux"
-import { Route } from "react-router"
-import { ConnectedRouter } from 'connected-react-router'
-import Login from "./Login/LoginForm"
-import Signup from "./Login/SignupForm"
-import './App.css';
-import 'antd/dist/antd.css';
-import RootSaga from "./sagas"
+import "./App.css";
+import "antd/dist/antd.css";
+import RootSaga from "./sagas";
 
-import configureStore, { history } from "./store"
+import configureStore, { history } from "./store";
 
-const App = rootElem => {
-    const store = configureStore()
-    store.runSaga(RootSaga)
-    return <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-
-        </ConnectedRouter>
+const App = (rootElem) => {
+  const store = configureStore();
+  store.runSaga(RootSaga);
+  return (
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+      </ConnectedRouter>
     </Provider>
-}
+  );
+};
 
-export default App
-
+export default App;
 
 // import {
 //     BrowserRouter,
@@ -35,7 +34,6 @@ export default App
 // import Menu from "./Common/Menu"
 // import './App.css';
 // import 'antd/dist/antd.css';
-
 
 // function App() {
 //     return (
@@ -49,5 +47,3 @@ export default App
 //     );
 // }
 // export default App;
-
-

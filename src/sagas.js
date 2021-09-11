@@ -1,11 +1,5 @@
-import {
-	all, call, fork, put, select, takeLatest
-} from "redux-saga/effects"
-// import { message } from "antd"
-// import api from "./api"
-// import * as actions from "./actions"
-
-
-
+import { all, fork } from "redux-saga/effects";
+import { LoginSagas } from "./Login";
 export default function* root() {
+  yield all([fork(LoginSagas)]);
 }
