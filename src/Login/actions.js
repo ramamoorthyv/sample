@@ -29,3 +29,8 @@ export const signupFailure = (errors) => ({
   type: constants.SIGNUP_FAILURE,
   errors,
 });
+
+export const setLoginEmail = (email) => ({
+  type: constants.SET_LOGIN_EMAIL,
+  email,
+});

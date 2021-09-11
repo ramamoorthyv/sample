@@ -9,7 +9,7 @@ import { required, email } from "redux-form-validators";
 
 const { Header, Content, Footer } = Layout;
 
-const SignupForm = ({ handleSubmit, signupState }) => {
+const SignupForm = ({ handleSubmit, signupState, loginEmail }) => {
   return (
     <Layout className="layout">
       <Header></Header>
@@ -22,7 +22,7 @@ const SignupForm = ({ handleSubmit, signupState }) => {
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 24 }}
             style={{ padding: 20 }}
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit}           
           >
             <Field
               size="large"
@@ -37,7 +37,7 @@ const SignupForm = ({ handleSubmit, signupState }) => {
               size="large"
               name="lName"
               placeholder="Last name"
-              // validate={[required()]}
+              validate={[required()]}
               component={InputField}
               required
             />

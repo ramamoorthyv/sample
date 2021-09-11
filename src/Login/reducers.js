@@ -7,6 +7,7 @@ import {
   SIGNUP_FAILURE,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
+  SET_LOGIN_EMAIL,
 } from "./constants";
 
 const initialState = false;
@@ -22,7 +23,12 @@ const loginState = createReducer(initialState)({
   [LOGIN_SUCCESS]: () => false,
 });
 
+const email = createReducer(null)({
+  [SET_LOGIN_EMAIL]: (state, { email }) => email,
+});
+
 export default combineReducers({
   signupState,
   loginState,
+  email,
 });

@@ -2,7 +2,9 @@ import React from "react";
 import { Provider } from "react-redux";
 import { Route } from "react-router";
 import { ConnectedRouter } from "connected-react-router";
-import { Login, Signup } from "./Login";
+import { withRouter } from "react-router-dom";
+
+import { Login, Signup,Otp } from "./Login";
 
 import "./App.css";
 import "antd/dist/antd.css";
@@ -17,13 +19,14 @@ const App = (rootElem) => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Route exact path="/login" component={Login} />
+        <Route exact path="/otp" component={Otp} />
         <Route exact path="/signup" component={Signup} />
       </ConnectedRouter>
     </Provider>
   );
 };
 
-export default App;
+export default withRouter(App);
 
 // import {
 //     BrowserRouter,

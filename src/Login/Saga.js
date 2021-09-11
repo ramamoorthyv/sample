@@ -1,6 +1,7 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { message } from "antd";
-import { stopSubmit } from "redux-form";
+import _ from "lodash";
+import { push } from "connected-react-router";
 import * as actions from "./actions";
 import * as constants from "./constants";
 import api from "./api";
@@ -16,13 +17,13 @@ export function* loginSaga({ user }) {
 }
 
 export function* signupSaga({ user }) {
-  const { response,errors } = yield call(api.signup, { user });
-  console.log("the response");
-  console.log(response)
+  const { response, errors } = yield call(api.signup, { user });
   if (response) {
     yield put(actions.signupSuccess(response));
+    yield put(actions.setLoginEmail(_.get(user, "email", null)));
+    yield put(push("/otp"));
   } else {
-    message.error(errors.data.message)
+    message.error(_.get(errors, "data.message", null));
     //yield put(stopSubmit("SignupForm", errors));
     yield put(actions.signupFailure(errors));
   }
