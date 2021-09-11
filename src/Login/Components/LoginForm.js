@@ -1,23 +1,15 @@
 import { Layout, Breadcrumb } from "antd";
-import { Form, Input, Button, Checkbox, Row, Col } from "antd";
+import { Form, Button } from "antd";
 import { Link } from "react-router-dom";
 
-import { Field, reduxForm, getFormValues } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 
-import { InputField, PasswordField } from "../../AntdReduxForm";
-import { required } from "redux-form-validators";
+import { InputField } from "../../AntdReduxForm";
+import { required, email } from "redux-form-validators";
 
 const { Header, Content, Footer } = Layout;
 
-const LoginForm = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-
+const LoginForm = ({ handleSubmit, loginState }) => {
   return (
     <Layout className="layout">
       <Header></Header>
@@ -25,34 +17,38 @@ const LoginForm = () => {
         <Breadcrumb style={{ margin: "16px 0" }}></Breadcrumb>
         <div>
           <h2 style={{ textAlign: "center" }}>Login </h2>
-          <Form
+          <form
             name="basic"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 24 }}
             initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
             autoComplete="off"
             style={{ padding: 20 }}
+            onSubmit={handleSubmit}
           >
             <Field
               size="large"
               name="email"
               placeholder="Email"
-              validate={[required()]}
+              validate={[required(), email()]}
               component={InputField}
               required
             />
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" size={"large"}>
+              <Button
+                type="primary"
+                htmlType="submit"
+                size={"large"}
+                loading={loginState}
+              >
                 Submit
               </Button>
               <Link style={{ paddingLeft: 20 }} to="/signup">
-                Register new user
+                Signup
               </Link>
             </Form.Item>
-          </Form>
+          </form>
         </div>
       </Content>
       <Footer style={{ textAlign: "center" }}>
@@ -63,5 +59,5 @@ const LoginForm = () => {
 };
 
 export default reduxForm({
-  form: "LoginForm",
+  form: "OtpForm",
 })(LoginForm);

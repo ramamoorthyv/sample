@@ -9,7 +9,7 @@ import { required } from "redux-form-validators";
 
 const { Header, Content, Footer } = Layout;
 
-const LoginForm = ({ handleSubmit,email }) => {
+const LoginForm = ({ handleSubmit, loginEmail, loginState }) => {
   return (
     <Layout className="layout">
       <Header></Header>
@@ -26,7 +26,7 @@ const LoginForm = ({ handleSubmit,email }) => {
             style={{ padding: 20 }}
             onSubmit={handleSubmit}
           >
-            <Form.Item>{email}</Form.Item>
+            <Form.Item>{loginEmail}</Form.Item>
 
             <Field
               size="large"
@@ -38,7 +38,12 @@ const LoginForm = ({ handleSubmit,email }) => {
             />
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" size={"large"}>
+              <Button
+                type="primary"
+                htmlType="submit"
+                size={"large"}
+                loading={loginState}
+              >
                 Submit
               </Button>
               <Link style={{ paddingLeft: 20 }} to="/login">

@@ -9,7 +9,7 @@ import {
 
 const login = ({ user }) => {
   const url = `${endpoint}/login`;
-  return makePOSTRequest(url)({ user })
+  return makePOSTRequest(url)({ ...user })
     .then(handleResponse)
     .catch(errorResponse);
 };

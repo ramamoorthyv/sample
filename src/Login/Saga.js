@@ -10,7 +10,16 @@ export function* loginSaga({ user }) {
   const { response, errors } = yield call(api.login, { user });
   if (response) {
     yield put(actions.loginSuccess(response));
+    yield put(actions.setLoginEmail(_.get(user, "email", null)));
+    yield put(push("/otp"));
+    const idToken = _.get(response, "data.idToken", null);
+    console.log('the respose is',response);
+    if (idToken) {
+      localStorage.setItem("idToken", idToken);
+      yield put(push("/home"));
+    }
   } else {
+    message.error(_.get(errors, "data.message", null));
     // yield put(stopSubmit("LoginForm", errors));
     yield put(actions.loginFailure(errors));
   }
