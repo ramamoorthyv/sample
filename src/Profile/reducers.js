@@ -8,8 +8,6 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
   SET_LOGIN_EMAIL,
-  SET_AUTH,
-  CLEAR_AUTH,
 } from "./constants";
 
 const initialState = false;
@@ -29,21 +27,8 @@ const email = createReducer(null)({
   [SET_LOGIN_EMAIL]: (state, { email }) => email,
 });
 
-const initalAuth = {
-  idToken: localStorage.getItem("idToken"),
-  fName: localStorage.getItem("fName"),
-};
-const auth = createReducer(initalAuth)({
-  [SET_AUTH]: (state, { idToken, fName }) => ({
-    idToken,
-    fName,
-  }),
-  [CLEAR_AUTH]: (state, action) => initalAuth,
-});
-
 export default combineReducers({
   signupState,
   loginState,
   email,
-  auth,
 });

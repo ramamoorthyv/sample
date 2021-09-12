@@ -34,17 +34,3 @@ export const setLoginEmail = (email) => ({
   type: constants.SET_LOGIN_EMAIL,
   email,
 });
-
-export const clearLoginEmail = () => ({
-  type: constants.SET_LOGIN_EMAIL,
-});
-
-export const setAuth = (idToken, fName) => ({
-  type: constants.SET_AUTH,
-  idToken,
-  fName,
-});
-
-export const clearAuth = () => ({
-  type: constants.CLEAR_AUTH,
-});

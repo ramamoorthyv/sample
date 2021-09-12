@@ -38,17 +38,16 @@
 }
 
 .site-layout-content {
-  min-height: 280px;  
-  background: #fff; 
-  
+  min-height: 280px;
+  background: #fff;
 }
-/* #components-layout-demo-top .logo {
+.logo {
   float: left;
   width: 120px;
   height: 31px;
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
-} */
+}
 /* .ant-row-rtl #components-layout-demo-top .logo {
   float: right;
   margin: 16px 0 16px 24px;
@@ -57,11 +56,27 @@
 /* For Desktop */
 
 @media screen and (min-width: 800px) {
-  .site-layout-content{
+  .site-layout-content {
     min-height: 280px;
-    margin-top: 50px;  
+    margin-top: 50px;
     margin-left: 600px;
     margin-right: 600px;
-    
   }
+}
+
+.private-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+#private-layout-top .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #private-layout-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
 }

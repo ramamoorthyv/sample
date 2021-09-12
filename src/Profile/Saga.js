@@ -11,16 +11,12 @@ export function* loginSaga({ user }) {
   if (response) {
     yield put(actions.loginSuccess(response));
     yield put(actions.setLoginEmail(_.get(user, "email", null)));
-
+    yield put(push("/otp"));
     const idToken = _.get(response, "data.idToken", null);
-    const fName = _.get(response, "data.fName", null);
+    console.log('the respose is',response);
     if (idToken) {
       localStorage.setItem("idToken", idToken);
-      localStorage.setItem("fName", fName);
-      yield put(actions.setAuth(idToken, fName));
       yield put(push("/profile"));
-    } else {
-      yield put(push("/otp"));
     }
   } else {
     message.error(_.get(errors, "data.message", null));
