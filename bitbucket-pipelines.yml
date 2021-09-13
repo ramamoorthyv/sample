@@ -24,4 +24,4 @@ pipelines:
                 AZURE_TENANT_ID: $AZURE_TENANT_ID
                 AZURE_RESOURCE_GROUP: $RESOURCE_GROUP
                 AZURE_APP_NAME: $APP_NAME
-                ZIP_FILE: "example-$BITBUCKET_BUILD_NUMBER.zip"
+                ZIP_FILE: "remote-dev-front-end-$BITBUCKET_BUILD_NUMBER.zip"
