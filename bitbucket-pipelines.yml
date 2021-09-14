@@ -53,9 +53,9 @@ pipelines:
           script:
             - pipe: microsoft/azure-web-apps-deploy:1.0.3
               variables:
-                AZURE_APP_ID: $AZURE_APP_ID
-                AZURE_PASSWORD: $AZURE_PASSWORD
-                AZURE_TENANT_ID: $AZURE_TENANT_ID
-                AZURE_RESOURCE_GROUP: $AZURE_RESOURCE_GROUP
-                AZURE_APP_NAME: $AZURE_APP_NAME
+                AZURE_APP_ID: 2b8b9dec-c48f-4359-9d9b-f758404338e9
+                AZURE_PASSWORD: FVPJcEj0gIMfgyo3YV.2YoBHFtRKx4pv~7
+                AZURE_TENANT_ID: abd4320c-00c1-4034-8ecb-69e9b5f669d6
+                AZURE_RESOURCE_GROUP: remote-dev-resource-gp
+                AZURE_APP_NAME: 2b8b9dec-c48f-4359-9d9b-f758404338e9
                 ZIP_FILE: app-$BITBUCKET_BUILD_NUMBER.zip
