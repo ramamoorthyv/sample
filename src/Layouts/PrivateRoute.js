@@ -19,11 +19,11 @@ const PrivateRoute = ({ component: Component, idToken, fName, ...rest }) => {
   const menu = (
     <Menu>
       <Menu.Item>
-        <a>View Profile</a>
+        <a href="#">View Profile</a>
       </Menu.Item>
 
       <Menu.Item danger>
-        <a href={""} onClick={handleLogout}>
+        <a href="#" onClick={handleLogout}>
           {" "}
           Logout{" "}
         </a>
@@ -41,6 +41,7 @@ const PrivateRoute = ({ component: Component, idToken, fName, ...rest }) => {
             <Header>
               <Dropdown overlay={menu}>
                 <a
+                  href="#"
                   style={{ float: "right" }}
                   className="ant-dropdown-link"
                   onClick={(e) => e.preventDefault()}

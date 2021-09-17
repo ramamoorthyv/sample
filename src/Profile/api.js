@@ -19,8 +19,8 @@ const signup = ({ user }) => {
     .then(handleResponse)
     .catch(errorResponse);
 };
-
-export default {
+const api = {
   login,
   signup,
-};
+}
+export default api;
