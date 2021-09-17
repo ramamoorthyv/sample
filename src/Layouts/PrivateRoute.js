@@ -19,14 +19,11 @@ const PrivateRoute = ({ component: Component, idToken, fName, ...rest }) => {
   const menu = (
     <Menu>
       <Menu.Item>
-        <a href="#">View Profile</a>
+        <span>View Profile</span>
       </Menu.Item>
 
       <Menu.Item danger>
-        <a href="#" onClick={handleLogout}>
-          {" "}
-          Logout{" "}
-        </a>
+        <span onClick={handleLogout}> Logout </span>
         {/* <Link to="/login">Logout</Link> */}
       </Menu.Item>
     </Menu>
@@ -40,12 +37,7 @@ const PrivateRoute = ({ component: Component, idToken, fName, ...rest }) => {
           <Layout className="layout">
             <Header>
               <Dropdown overlay={menu}>
-                <a
-                  href="#"
-                  style={{ float: "right" }}
-                  className="ant-dropdown-link"
-                  onClick={(e) => e.preventDefault()}
-                >
+                <span style={{ float: "right" }} className="ant-dropdown-link">
                   <Avatar
                     size={40}
                     style={{ backgroundColor: "#87d068" }}
@@ -54,7 +46,7 @@ const PrivateRoute = ({ component: Component, idToken, fName, ...rest }) => {
                     {" "}
                     {_.startCase(_.toLower(fName))}{" "}
                   </Avatar>
-                </a>
+                </span>
               </Dropdown>
             </Header>
             <Content style={{ padding: "0 50px" }}>
