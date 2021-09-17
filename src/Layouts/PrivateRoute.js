@@ -28,6 +28,7 @@ const PrivateRoute = ({ component: Component, idToken, fName, ...rest }) => {
       </Menu.Item>
     </Menu>
   );
+  
 
   return (
     <Route
