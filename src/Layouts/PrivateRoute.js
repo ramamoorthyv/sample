@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { Layout, Breadcrumb, Menu, Dropdown, Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import _ from "lodash";
 
 // import isAuth from "../isAuth";
 const { Header, Content, Footer } = Layout;
-const fName = localStorage.getItem("fName");
 
 const PrivateRoute = ({ component: Component, idToken, fName, ...rest }) => {
   let history = useHistory();

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 import * as actions from "./actions";
 import Form from "./Components/Basic";
 

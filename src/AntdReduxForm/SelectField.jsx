@@ -1,9 +1,15 @@
-import React from 'react';
-import { Select } from 'antd';
+import React from "react";
+import { Select } from "antd";
 
-const SelectField = ({ input, onBlur, children, mode, value, defaultValue, ...rest }) => {
-  const { options } = rest;
-
+const SelectField = ({
+  input,
+  onBlur,
+  children,
+  mode,
+  value,
+  defaultValue,
+  ...rest
+}) => {
   if (!value && !defaultValue) {
     return (
       <Select

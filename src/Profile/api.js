@@ -4,7 +4,6 @@ import {
   errorResponse,
   handleResponse,
   makePOSTRequest,
-  makePATCHRequest,
 } from "../Utils/apiRequests";
 
 const login = ({ user }) => {

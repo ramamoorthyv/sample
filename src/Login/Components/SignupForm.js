@@ -1,4 +1,3 @@
-import { Layout, Breadcrumb } from "antd";
 import { Form, Button } from "antd";
 import { Link } from "react-router-dom";
 
@@ -7,9 +6,8 @@ import { Field, reduxForm } from "redux-form";
 import { InputField } from "../../AntdReduxForm";
 import { required, email } from "redux-form-validators";
 
-const { Header, Content, Footer } = Layout;
 
-const SignupForm = ({ handleSubmit, signupState, loginEmail }) => {
+const SignupForm = ({ handleSubmit, signupState }) => {
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>Register new user </h2>
